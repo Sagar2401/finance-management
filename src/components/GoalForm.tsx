@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -73,7 +72,7 @@ export function GoalForm({ onSubmit, isSubmitting = false }: GoalFormProps) {
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="description"
@@ -91,7 +90,7 @@ export function GoalForm({ onSubmit, isSubmitting = false }: GoalFormProps) {
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="target"
@@ -100,25 +99,25 @@ export function GoalForm({ onSubmit, isSubmitting = false }: GoalFormProps) {
               <FormLabel>Target Amount</FormLabel>
               <FormControl>
                 <div className="relative">
-                  <span className="absolute left-3 top-2.5 text-muted-foreground">$</span>
-                  <Input 
-                    type="number" 
-                    step="0.01" 
-                    min="0" 
-                    placeholder="0.00" 
-                    {...field} 
-                    className="pl-7" 
+                  <span className="absolute left-3 top-2.5 text-muted-foreground">
+                    ₹
+                  </span>
+                  <Input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    placeholder="0.00"
+                    {...field}
+                    className="pl-7"
                   />
                 </div>
               </FormControl>
-              <FormDescription>
-                How much do you need to save?
-              </FormDescription>
+              <FormDescription>How much do you need to save?</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="hasDeadline"
@@ -139,7 +138,7 @@ export function GoalForm({ onSubmit, isSubmitting = false }: GoalFormProps) {
             </FormItem>
           )}
         />
-        
+
         {hasDeadline && (
           <FormField
             control={form.control}
@@ -182,7 +181,7 @@ export function GoalForm({ onSubmit, isSubmitting = false }: GoalFormProps) {
             )}
           />
         )}
-        
+
         <Button type="submit" className="w-full" disabled={isSubmitting}>
           <TargetIcon className="mr-2 h-4 w-4" />
           Create Goal

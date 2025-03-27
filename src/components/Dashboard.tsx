@@ -105,7 +105,7 @@ export function Dashboard({
             <CardTitle>Income vs Expenses</CardTitle>
             <CardDescription>Monthly comparison</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-4 pt-0">
             <IncomeExpenseChart />
           </CardContent>
         </Card>

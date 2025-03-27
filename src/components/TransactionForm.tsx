@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -55,7 +55,10 @@ interface TransactionFormProps {
   isSubmitting?: boolean;
 }
 
-export function TransactionForm({ onSubmit, isSubmitting = false }: TransactionFormProps) {
+export function TransactionForm({
+  onSubmit,
+  isSubmitting = false,
+}: TransactionFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -88,15 +91,19 @@ export function TransactionForm({ onSubmit, isSubmitting = false }: TransactionF
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="income" className="text-income">Income</SelectItem>
-                  <SelectItem value="expense" className="text-expense">Expense</SelectItem>
+                  <SelectItem value="income" className="text-income">
+                    Income
+                  </SelectItem>
+                  <SelectItem value="expense" className="text-expense">
+                    Expense
+                  </SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
             </FormItem>
           )}
         />
-        
+
         <div className="grid gap-6 md:grid-cols-2">
           <FormField
             control={form.control}
@@ -106,15 +113,24 @@ export function TransactionForm({ onSubmit, isSubmitting = false }: TransactionF
                 <FormLabel>Amount</FormLabel>
                 <FormControl>
                   <div className="relative">
-                    <span className="absolute left-3 top-2.5 text-muted-foreground">$</span>
-                    <Input type="number" step="0.01" min="0" placeholder="0.00" {...field} className="pl-7" />
+                    <span className="absolute left-3 top-2.5 text-muted-foreground">
+                      ₹
+                    </span>
+                    <Input
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      placeholder="0.00"
+                      {...field}
+                      className="pl-7"
+                    />
                   </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
+
           <FormField
             control={form.control}
             name="date"
@@ -158,7 +174,7 @@ export function TransactionForm({ onSubmit, isSubmitting = false }: TransactionF
             )}
           />
         </div>
-        
+
         <FormField
           control={form.control}
           name="category"
@@ -186,7 +202,7 @@ export function TransactionForm({ onSubmit, isSubmitting = false }: TransactionF
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="description"
@@ -204,7 +220,7 @@ export function TransactionForm({ onSubmit, isSubmitting = false }: TransactionF
             </FormItem>
           )}
         />
-        
+
         <Button type="submit" className="w-full" disabled={isSubmitting}>
           <Plus className="mr-2 h-4 w-4" />
           Add Transaction
